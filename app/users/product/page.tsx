@@ -15,7 +15,7 @@ return (
           <h2 className="card-title">{post.title}</h2>
           <p>{post.body}</p>
         <div className="card-actions justify-end">
-          <Link href={`/product/${post.id}`} className="btn btn-primary">{post.userId}</Link>
+          <Link href={`/users/product/${post.id}`} className="btn btn-primary">{post.userId}</Link>
           </div>
         </div>
     </div>
