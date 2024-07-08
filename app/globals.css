@@ -20,3 +20,7 @@ body {
   color: rgb(var(--foreground-rgb));
 
 }
+.side-modal{
+  @apply w-[30%] h-[100%] bg-gray-300 absolute right-0 top-0 p-4 translate-x-[100%];
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}

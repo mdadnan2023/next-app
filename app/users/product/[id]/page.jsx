@@ -11,12 +11,14 @@ async function getProduct(id) {
 export default async function ProductCardDetail({ params }) {
   const product = await getProduct(params.id);
 
+  //side-modal function
   function addToCart() {
-    alert('Button checked');
+    // var sideModal = document.getElementById(side-modal);
+    alert('news');
   }
 
   return (
-    <main className="bg-[#F3F7FA]">
+    <main className="bg-[#F3F7FA] relative">
       <nav>
         <h2 className="text-4xl underline underline-offset-2">Product Detail :{product.id}</h2>
       </nav>
@@ -29,6 +31,9 @@ export default async function ProductCardDetail({ params }) {
             <button onClick={()=>addToCart()} className="btn btn-secondary drawer-button">Add to cart</button>
           </div>
         </div>
+      </div>
+      <div className="side-modal">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa suscipit nostrum, corrupti eos molestias laborum et odio labore ab neque esse reprehenderit animi doloribus dolor velit totam ipsum sint quod temporibus quam perspiciatis perferendis dicta!</p>
       </div>
     </main>
   );
