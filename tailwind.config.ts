@@ -13,6 +13,10 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        'primary': '#F5811E',
+        'secondary': '#2E3192'
+      }
     },
   },
   plugins: [require('daisyui'),],

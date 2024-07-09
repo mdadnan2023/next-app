@@ -17,10 +17,146 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  background-color: #FFFFFF;
 
 }
-.side-modal{
-  @apply w-[30%] h-[100%] bg-gray-300 absolute right-0 top-0 p-4 translate-x-[100%];
-  font-family:Georgia, 'Times New Roman', Times, serif;
+
+@media only screen and (min-width: 0px) and (max-width: 479px) {
+  .container {
+    @apply px-4;
+  }
 }
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .container {
+    @apply px-[2rem] max-w-[540px]
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    @apply px-[3rem] max-w-[720px];
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1279px) {
+  .container {
+    @apply px-[4rem] max-w-[960px];
+  }
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1535px) {
+  .container {
+    @apply px-[4rem] max-w-[1240px];
+  }
+}
+
+@media only screen and (min-width: 1536px) and (max-width: 1680px) {
+  .container {
+    @apply px-[5rem] max-w-[1240px];
+  }
+}
+
+@media only screen and (min-width: 1681px) and (max-width: 1920px) {
+  .container {
+    @apply  max-w-[1240px]
+  }
+}
+
+
+/* Navbar css */
+
+.nav-main{
+  @apply w-full p-0 bg-[#FFFFFF] fixed top-0 z-40 backdrop-blur-[50px] border-b border-[#C9CDD3]
+}
+
+.nav-links{
+  @apply text-[#101010] text-[16px] hover:bg-transparent rounded-none font-medium flex items-center relative group-hover:text-primary
+  capitalize 
+}
+.nav-arrow{
+  @apply ml-[3px] mt-[2px] group-hover:rotate-180 transition-all duration-300 group-hover:fill-primary
+}
+.dropdown-content{
+  @apply right-0 mt-12 shadow w-52 text-lg bg-[#F5F5F5] text-center p-1
+}
+.submenu-dropdown{
+  @apply z-10 bg-primary shadow-lg relative left-0 top-0 p-1
+}
+.dropdown-options{
+  @apply text-white text-base font-normal active:bg-transparent px-2 py-4 hover:bg-primary   
+}
+
+.nav-drop{
+  @apply relative py-4 md:py-7
+}
+.nav-drop {
+  @apply relative
+}
+.center-dropdown {
+  @apply absolute w-[180px] border backdrop-blur-sm h-0 overflow-hidden invisible transition-[height] duration-[0.2s] ease-[ease-in-out]
+   flex flex-col mt-0 border-solid border-[#101010] top-[84px] left-[-16px];
+  background: rgba(255, 255, 255, 0.9);
+}
+.nav-drop:hover .center-dropdown {
+  @apply h-[214px] transition-[height] duration-[0.5s] ease-[ease-in-out] visible;
+}
+
+.drop-list{
+  @apply text-[#101010] text-[14px] active:bg-transparent !py-3 hover:bg-transparent border-b border-[#101010] rounded-none
+  active:text-[#FFFFFF] active:bg-[#101010] last:border-b-transparent
+}
+.login-btn{
+  @apply text-[#101010] text-[16px] uppercase font-medium border border-[#101010] px-6 py-2
+}
+.signup-btn{
+  @apply text-[#FFFFFF] text-[16px] uppercase font-medium border border-[#101010] px-6 py-2 bg-[#101010] hover:bg-primary hover:border-primary 
+  transition-all duration-500
+}
+.search {
+  @apply w-full relative cursor-pointer
+}
+
+.search input {
+  @apply w-9 h-9 border border-[#101010] float-right transition-all duration-500 outline-none p-5 placeholder:leading-[1] 
+  italic placeholder:text-[#101010] leading-[1]
+}
+.page-template-result .search input{
+  @apply w-full
+}
+.stretch{
+  @apply !w-[100%]
+}
+.menu[class*=" px-"]:not(.menu[class*=" px-0"]) li > *{
+  @apply rounded-none
+}
+
+.menu :where(li) > :where(*:not(ul)) {
+  @apply gap-0 p-0
+}
+.search-btn{
+    @apply flex gap-x-[5px] items-center
+}
+
+.nav-hov:after {
+@apply content-[''] absolute w-full h-px bg-primary origin-bottom-right transition-transform duration-[0.25s] ease-[ease-out] scale-x-0 left-0 bottom-0;
+}
+.nav-hov:hover:after {
+@apply origin-bottom-left scale-x-100;
+}
+.primary-btn{
+  @apply p-3 bg-primary text-[#FFFFFF] text-[14px] font-medium rounded-[4px] flex gap-2
+}
+.primary-btn::after{
+  content: url('data:image/svg+xml,<svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.5L9 0.5M9 0.5H2.5M9 0.5V7" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+.secondary-btn{
+  @apply p-3 bg-secondary text-[#FFFFFF] text-[14px] font-medium rounded-[4px] flex gap-2
+}
+.secondary-btn::after{
+  content: url('data:image/svg+xml,<svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.5L9 0.5M9 0.5H2.5M9 0.5V7" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+
+
+
+
