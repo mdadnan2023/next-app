@@ -5,15 +5,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
+import Image from "next/image";
+import truck1 from "../../assets/images/truck1.jpg";
+import truck2 from "../../assets/images/truck2.jpg";
+import truck3 from "../../assets/images/truck3.jpg";
 
-export default function slider() {
+export default function imageslider() {
   return (
     <div>
       <Swiper
         loop={true}
         speed={2000}
         autoplay={{
-          delay: 4000,
+          delay: 8000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}
@@ -33,13 +37,11 @@ export default function slider() {
                 </Link>
               </div>
             </div>
-            <video
+            <Image
+              src={truck1}
+              alt="truck1"
               className="absolute top-0 w-full h-fit object-contain"
-              src={"https://videocdn.cdnpk.net/videos/d0db0570-dc13-4dae-8029-9db88e88e580/horizontal/previews/watermarked/large.mp4"}
-              loop
-              autoPlay
-              muted
-            ></video>
+            />
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -47,22 +49,20 @@ export default function slider() {
             <span className="slider-overlay"></span>
             <div className="w-full h-[100vh] flex items-center">
               <div className="swiper-card relative z-10 container mx-auto">
-                <h2 className="section-heading">OTR Tyre</h2>
+                <h2 className="section-heading">TBB & ULT Tyres</h2>
                 <p className="section-subheading">
-                  Designed for Durability and Strength
+                  Fortifying Commercial Vehicle
                 </p>
                 <Link className="explore-btn" href="">
                   Explore Now
                 </Link>
               </div>
             </div>
-            <video
+            <Image
+              src={truck2}
+              alt="logo"
               className="absolute top-0 w-full h-fit object-contain"
-              src={"https://assets.mixkit.co/videos/45906/45906-720.mp4"}
-              loop
-              autoPlay
-              muted
-            ></video>
+            />
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -70,22 +70,20 @@ export default function slider() {
             <span className="slider-overlay"></span>
             <div className="w-full h-[100vh] flex items-center">
               <div className="swiper-card relative z-10 container mx-auto">
-                <h2 className="section-heading">Agriculture Tyres</h2>
+                <h2 className="section-heading">TBB & ULT Tyres</h2>
                 <p className="section-subheading">
-                  The Power To strengthen your field
+                  Fortifying Commercial Vehicle
                 </p>
                 <Link className="explore-btn" href="">
                   Explore Now
                 </Link>
               </div>
             </div>
-            <video
+            <Image
+              src={truck3}
+              alt="logo"
               className="absolute top-0 w-full h-fit object-contain"
-              src={"https://videos.pexels.com/video-files/6685779/6685779-hd_1920_1080_30fps.mp4"}
-              loop
-              autoPlay
-              muted
-            ></video>
+            />
           </div>
         </SwiperSlide>
       </Swiper>
