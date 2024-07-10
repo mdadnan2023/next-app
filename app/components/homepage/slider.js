@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import "swiper/css";
 import { Autoplay } from "swiper/modules";
+import GradualSpacing from "@/components/GradualSpacing";
+import LetterPullup from "@/components/LetterPullup";
 
 export default function slider() {
   return (
@@ -24,10 +26,19 @@ export default function slider() {
             <span className="slider-overlay"></span>
             <div className="w-full h-[100vh] flex items-center">
               <div className="swiper-card relative z-10 container mx-auto">
-                <h2 className="section-heading">TBB & ULT Tyres</h2>
-                <p className="section-subheading">
+                {/* <h2 className="section-heading">TBB & ULT Tyres</h2> */}
+                <GradualSpacing
+                  className="section-heading"
+                  text="TBB & ULT Tyres"
+                />
+                {/* <p className="section-subheading">
                   Fortifying Commercial Vehicle
-                </p>
+                </p> */}
+                <LetterPullup
+                  className="section-subheading"
+                  words={"Fortifying Commercial Vehicle"}
+                  delay={0.05}
+                />
                 <Link className="explore-btn" href="">
                   Explore Now
                 </Link>
@@ -35,14 +46,16 @@ export default function slider() {
             </div>
             <video
               className="absolute top-0 w-full h-fit object-contain"
-              src={"https://videocdn.cdnpk.net/videos/d0db0570-dc13-4dae-8029-9db88e88e580/horizontal/previews/watermarked/large.mp4"}
+              src={
+                "https://videocdn.cdnpk.net/videos/d0db0570-dc13-4dae-8029-9db88e88e580/horizontal/previews/watermarked/large.mp4"
+              }
               loop
               autoPlay
               muted
             ></video>
           </div>
         </SwiperSlide>
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <div className="swiper-card-main relative">
             <span className="slider-overlay"></span>
             <div className="w-full h-[100vh] flex items-center">
@@ -81,13 +94,15 @@ export default function slider() {
             </div>
             <video
               className="absolute top-0 w-full h-fit object-contain"
-              src={"https://videos.pexels.com/video-files/6685779/6685779-hd_1920_1080_30fps.mp4"}
+              src={
+                "https://videos.pexels.com/video-files/6685779/6685779-hd_1920_1080_30fps.mp4"
+              }
               loop
               autoPlay
               muted
             ></video>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </div>
   );
