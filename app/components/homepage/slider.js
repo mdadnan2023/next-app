@@ -26,9 +26,9 @@ export default function slider() {
             <span className="slider-overlay"></span>
             <div className="w-full h-[100vh] flex items-center">
               <div className="swiper-card relative z-10 container mx-auto">
-                {/* <h2 className="section-heading">TBB & ULT Tyres</h2> */}
+                {/* <h2 className="hero-sec-heading">TBB & ULT Tyres</h2> */}
                 <GradualSpacing
-                  className="section-heading"
+                  className="hero-sec-heading"
                   text="TBB & ULT Tyres"
                 />
                 {/* <p className="section-subheading">
@@ -55,12 +55,12 @@ export default function slider() {
             ></video>
           </div>
         </SwiperSlide>
-        {/* <SwiperSlide>
+        <SwiperSlide>
           <div className="swiper-card-main relative">
             <span className="slider-overlay"></span>
             <div className="w-full h-[100vh] flex items-center">
               <div className="swiper-card relative z-10 container mx-auto">
-                <h2 className="section-heading">OTR Tyre</h2>
+                <h2 className="hero-sec-heading">OTR Tyre</h2>
                 <p className="section-subheading">
                   Designed for Durability and Strength
                 </p>
@@ -83,7 +83,7 @@ export default function slider() {
             <span className="slider-overlay"></span>
             <div className="w-full h-[100vh] flex items-center">
               <div className="swiper-card relative z-10 container mx-auto">
-                <h2 className="section-heading">Agriculture Tyres</h2>
+                <h2 className="hero-sec-heading">Agriculture Tyres</h2>
                 <p className="section-subheading">
                   The Power To strengthen your field
                 </p>
@@ -102,7 +102,7 @@ export default function slider() {
               muted
             ></video>
           </div>
-        </SwiperSlide> */}
+        </SwiperSlide>
       </Swiper>
     </div>
   );
