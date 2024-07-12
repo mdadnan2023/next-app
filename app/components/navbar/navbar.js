@@ -6,15 +6,26 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function navbar() {
-  const [menu, setMenu] = useState([]);
+  const [navBtn, setNavBtn] = useState([]);
+  const [navMenu, setNavMenu] = useState([]);
   // const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
     fetch("http://birlatyres.viaconprojects.com:1337/api/header")
       .then((res) => res.json())
       .then((header) => {
-        setMenu(header.data.attributes.button);
-        console.log(menu);
+        setNavBtn(header.data.attributes.button);
+        console.log(navBtn);
+        // setLoading(false)
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("http://birlatyres.viaconprojects.com:1337/api/header")
+      .then((res) => res.json())
+      .then((navMenus) => {
+        setNavMenu(navMenus.data.attributes.menu.data.attributes.menu);
+        // console.log(navMenu);
         // setLoading(false)
       });
   }, []);
@@ -25,8 +36,14 @@ export default function navbar() {
         <div className="w-full flex justify-between items-center relative">
           <div className="navbar-start flex gap-4 items-center">
             <div className="flex gap-2 items-center w-fit">
-              {menu.map((btn) => (
-                <button style={{ backgroundColor: `${btn.color}` }} className="primary-btn">{btn.button_link.name}</button>
+              {navBtn.map((btn) => (
+                <Link
+                  href="/"
+                  style={{ backgroundColor: `${btn.color}` }}
+                  className="primary-btn"
+                >
+                  {btn.button_link.name}
+                </Link>
               ))}
               {/* <button className="primary-btn">Find a Tyre</button>
               <button className="secondary-btn">Find a Dealer</button> */}
@@ -64,117 +81,149 @@ export default function navbar() {
 
           <div className="navbar-center">
             <ul className="menu menu-horizontal relative text-lg lg:gap-4 xl:gap-7 hidden lg:flex p-0">
-              <li className="nav-drop group">
-                <a href="#" className="nav-links nav-hov">
-                  About Us
-                  <svg
-                    className="nav-arrow"
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="#333333"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5.00045 3.44752L8.30032 0.147705L9.24312 1.09051L5.00045 5.33319L0.757812 1.09051L1.70063 0.147705L5.00045 3.44752Z"
-                      fill=""
-                    />
-                  </svg>
-                </a>
-                <ul className="center-dropdown">
-                  <li>
-                    <a className="drop-list" href="">
-                      MARKETING
-                    </a>
-                  </li>
-                  <li>
-                    <a className="drop-list" href="">
-                      GREEN
-                    </a>
-                  </li>
-                  <li>
-                    <a className="drop-list" href="">
-                      FINANCE
-                    </a>
-                  </li>
-                  <li>
-                    <a className="drop-list" href="">
-                      ENTREPRENEURSHIP
-                    </a>
-                  </li>
-                  <li>
-                    <a className="drop-list" href="">
-                      ENEGRY
-                    </a>
-                  </li>
-                  <li>
-                    <a className="drop-list" href="">
-                      AUTOMOTIVE
-                    </a>
-                  </li>
-                  <li>
-                    <a className="drop-list" href="">
-                      REAL ESTATE
-                    </a>
-                  </li>
-                  <li>
-                    <a className="drop-list" href="">
-                      SMALL BUSINESS
-                    </a>
-                  </li>
-                  <li>
-                    <a className="drop-list" href="">
-                      STARTUPS
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-drop group">
-                <a href="#" className="nav-links nav-hov">
-                  Categories
-                  <svg
-                    className="nav-arrow"
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="#333333"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5.00045 3.44752L8.30032 0.147705L9.24312 1.09051L5.00045 5.33319L0.757812 1.09051L1.70063 0.147705L5.00045 3.44752Z"
-                      fill=""
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li className="nav-drop group">
-                <a href="#" className="nav-links nav-hov">
-                  Sustainability
-                  <svg
-                    className="nav-arrow"
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="#333333"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5.00045 3.44752L8.30032 0.147705L9.24312 1.09051L5.00045 5.33319L0.757812 1.09051L1.70063 0.147705L5.00045 3.44752Z"
-                      fill=""
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li className="nav-drop group">
-                <a href="#" className="nav-links nav-hov">
-                  Tyre Advice
-                </a>
-              </li>
-              <li className="nav-drop group">
-                <a href="#" className="nav-links nav-hov">
-                  contact us
-                </a>
-              </li>
+              {navMenu.map((navMenu) => (
+                <li className="nav-drop group">
+                  <Link href="#" className="nav-links nav-hov">
+                    {navMenu.menu_item.name}
+                    <svg
+                      className="nav-arrow"
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="#333333"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.00045 3.44752L8.30032 0.147705L9.24312 1.09051L5.00045 5.33319L0.757812 1.09051L1.70063 0.147705L5.00045 3.44752Z"
+                        fill=""
+                      />
+                    </svg>
+                  </Link>
+                  <ul className="center-dropdown">
+                    {navMenu.sub_menu_item.map((subMenu) => (
+                      <li>
+                        <Link className="drop-list" href="">
+                          {subMenu.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+
+              {/* <ul className="center-dropdown">
+                <li className="nav-drop group">
+                  <a href="#" className="nav-links nav-hov">
+                    About Us
+                    <svg
+                      className="nav-arrow"
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="#333333"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.00045 3.44752L8.30032 0.147705L9.24312 1.09051L5.00045 5.33319L0.757812 1.09051L1.70063 0.147705L5.00045 3.44752Z"
+                        fill=""
+                      />
+                    </svg>
+                  </a>
+                  <ul className="center-dropdown">
+                    <li>
+                      <a className="drop-list" href="">
+                        MARKETING
+                      </a>
+                    </li>
+                    <li>
+                      <a className="drop-list" href="">
+                        GREEN
+                      </a>
+                    </li>
+                    <li>
+                      <a className="drop-list" href="">
+                        FINANCE
+                      </a>
+                    </li>
+                    <li>
+                      <a className="drop-list" href="">
+                        ENTREPRENEURSHIP
+                      </a>
+                    </li>
+                    <li>
+                      <a className="drop-list" href="">
+                        ENEGRY
+                      </a>
+                    </li>
+                    <li>
+                      <a className="drop-list" href="">
+                        AUTOMOTIVE
+                      </a>
+                    </li>
+                    <li>
+                      <a className="drop-list" href="">
+                        REAL ESTATE
+                      </a>
+                    </li>
+                    <li>
+                      <a className="drop-list" href="">
+                        SMALL BUSINESS
+                      </a>
+                    </li>
+                    <li>
+                      <a className="drop-list" href="">
+                        STARTUPS
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li className="nav-drop group">
+                  <a href="#" className="nav-links nav-hov">
+                    Categories
+                    <svg
+                      className="nav-arrow"
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="#333333"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.00045 3.44752L8.30032 0.147705L9.24312 1.09051L5.00045 5.33319L0.757812 1.09051L1.70063 0.147705L5.00045 3.44752Z"
+                        fill=""
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li className="nav-drop group">
+                  <a href="#" className="nav-links nav-hov">
+                    Sustainability
+                    <svg
+                      className="nav-arrow"
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="#333333"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.00045 3.44752L8.30032 0.147705L9.24312 1.09051L5.00045 5.33319L0.757812 1.09051L1.70063 0.147705L5.00045 3.44752Z"
+                        fill=""
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li className="nav-drop group">
+                  <a href="#" className="nav-links nav-hov">
+                    Tyre Advice
+                  </a>
+                </li>
+                <li className="nav-drop group">
+                  <a href="#" className="nav-links nav-hov">
+                    contact us
+                  </a>
+                </li>
+              </ul> */}
             </ul>
           </div>
 
@@ -189,7 +238,6 @@ export default function navbar() {
               </figure>
             </Link>
           </div>
-          
         </div>
         {/* {menu.map((btn) => (
           <h2 style={{ color: `${btn.color}` }}>{btn.title}</h2>
