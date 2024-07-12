@@ -25,8 +25,11 @@ export default function navbar() {
         <div className="w-full flex justify-between items-center relative">
           <div className="navbar-start flex gap-4 items-center">
             <div className="flex gap-2 items-center w-fit">
-              <button className="primary-btn">Find a Tyre</button>
-              <button className="secondary-btn">Find a Dealer</button>
+              {menu.map((btn) => (
+                <button style={{ backgroundColor: `${btn.color}` }} className="primary-btn">{btn.button_link.name}</button>
+              ))}
+              {/* <button className="primary-btn">Find a Tyre</button>
+              <button className="secondary-btn">Find a Dealer</button> */}
             </div>
             <div className="language-sec flex items-center gap-1">
               En
