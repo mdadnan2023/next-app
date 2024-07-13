@@ -99,15 +99,17 @@ export default function navbar() {
                       />
                     </svg>
                   </Link>
-                  <ul className="center-dropdown">
-                    {navMenu.sub_menu_item.map((subMenu) => (
-                      <li>
-                        <Link className="drop-list" href="">
-                          {subMenu.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  {navMenu.sub_menu_item.length > 0 && (
+                    <ul className="center-dropdown">
+                      {navMenu.sub_menu_item.map((subMenu) => (
+                        <li>
+                          <Link className="drop-list" href="">
+                            {subMenu.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
 
