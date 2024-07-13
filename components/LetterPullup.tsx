@@ -25,7 +25,7 @@ export default function LetterPullup({
       y: 0,
       opacity: 1,
       transition: {
-        delay: i * (delay? delay : 0.05), // By default, delay each letter's animation by 0.05 seconds
+        delay: i * (delay? delay : 0.07), // By default, delay each letter's animation by 0.05 seconds
       },
     }),
   };
