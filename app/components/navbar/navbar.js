@@ -85,19 +85,21 @@ export default function navbar() {
                 <li className="nav-drop group">
                   <Link href="#" className="nav-links nav-hov">
                     {navMenu.menu_item.name}
-                    <svg
-                      className="nav-arrow"
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="#333333"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M5.00045 3.44752L8.30032 0.147705L9.24312 1.09051L5.00045 5.33319L0.757812 1.09051L1.70063 0.147705L5.00045 3.44752Z"
-                        fill=""
-                      />
-                    </svg>
+                    {navMenu.sub_menu_item.length > 0 && (
+                      <svg
+                        className="nav-arrow"
+                        width="10"
+                        height="6"
+                        viewBox="0 0 10 6"
+                        fill="#333333"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.00045 3.44752L8.30032 0.147705L9.24312 1.09051L5.00045 5.33319L0.757812 1.09051L1.70063 0.147705L5.00045 3.44752Z"
+                          fill=""
+                        />
+                      </svg>
+                    )}
                   </Link>
                   {navMenu.sub_menu_item.length > 0 && (
                     <ul className="center-dropdown">
