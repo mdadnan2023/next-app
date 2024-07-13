@@ -94,17 +94,17 @@ body {
   @apply relative
 }
 .center-dropdown {
-  @apply absolute w-[180px] border backdrop-blur-sm h-0 overflow-hidden invisible transition-[height] duration-[0.2s] ease-[ease-in-out]
-   flex flex-col mt-0 border-solid border-[#101010] top-[84px] left-[-16px];
-  background: rgba(255, 255, 255, 0.9);
+  @apply absolute w-[180px] h-0 overflow-hidden invisible transition-[height] duration-[0.2s] ease-[ease-in-out] border border-[#000]
+   flex flex-col mt-0 top-[84px] left-[-16px] bg-[#cec7c7] p-0 overflow-y-auto
 }
+
 .nav-drop:hover .center-dropdown {
-  @apply h-[214px] transition-[height] duration-[0.5s] ease-[ease-in-out] visible;
+  @apply h-[180px] transition-[height] duration-[0.5s] ease-[ease-in-out] visible;
 }
 
 .drop-list{
-  @apply text-[#101010] text-[14px] active:bg-transparent !py-3 hover:bg-transparent border-b border-[#101010] rounded-none
-  active:text-[#FFFFFF] active:bg-[#101010] last:border-b-transparent
+  @apply text-[#101010] text-[14px] font-medium active:bg-transparent !p-2 hover:bg-transparent !border-b border-[#101010] rounded-none
+  active:text-[#FFFFFF] active:bg-[#101010] last:border-b-transparent hover:bg-white hover:text-primary
 }
 .login-btn{
   @apply text-[#101010] text-[16px] uppercase font-medium border border-[#101010] px-6 py-2

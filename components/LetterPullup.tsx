@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-
+import React from "react";
+import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface LetterPullupProps {
@@ -16,6 +16,8 @@ export default function LetterPullup({
   delay,
 }: LetterPullupProps) {
   const letters = words.split("");
+  const ref = React.createRef<HTMLDivElement>();
+  const isInView = useInView(ref, { once: false }); // Set once to false to trigger animation every time
 
   const pullupVariant = {
     initial: { y: 100, opacity: 0 },
@@ -23,26 +25,26 @@ export default function LetterPullup({
       y: 0,
       opacity: 1,
       transition: {
-        delay: i * (delay ? delay : 0.05), // By default, delay each letter's animation by 0.05 seconds
+        delay: i * (delay? delay : 0.05), // By default, delay each letter's animation by 0.05 seconds
       },
     }),
   };
 
   return (
-    <div className="flex">
+    <div ref={ref} className="flex">
       {letters.map((letter, i) => (
         <motion.h1
           key={i}
           variants={pullupVariant}
           initial="initial"
-          animate="animate"
+          animate={isInView? "animate" : "initial"} // Trigger animation when in view
           custom={i}
           className={cn(
             "",
             className,
           )}
         >
-          {letter === " " ? <span>&nbsp;</span> : letter}
+          {letter === " "? <span>&nbsp;</span> : letter}
         </motion.h1>
       ))}
     </div>
