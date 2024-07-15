@@ -43,7 +43,7 @@ export default function navbar() {
       .then((res) => res.json())
       .then((navMenus) => {
         setNavMenu(navMenus.data.attributes.menu.data.attributes.menu);
-        // console.log(navMenu);
+        // console.log(setNavMenu);
         // setLoading(false)
       });
   }, []);
