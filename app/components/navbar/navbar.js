@@ -79,7 +79,7 @@ export default function navbar() {
             <ul className="menu menu-horizontal relative text-lg lg:gap-4 xl:gap-7 hidden lg:flex p-0">
               {navMenu.map((navMenu) => (
                 <li className="nav-drop group">
-                  <Link href="#" className="nav-links nav-hov">
+                  <Link href={`/${navMenu.link}`} className="nav-links nav-hov">
                     {navMenu.menu_item.name}
                     {navMenu.sub_menu_item.length > 0 && (
                       <svg
@@ -101,7 +101,7 @@ export default function navbar() {
                     <ul className="center-dropdown">
                       {navMenu.sub_menu_item.map((subMenu) => (
                         <li>
-                          <Link className="drop-list" href="">
+                          <Link href={`/${subMenu.link}`} className="drop-list">
                             {subMenu.name}
                           </Link>
                         </li>

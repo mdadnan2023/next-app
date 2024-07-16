@@ -218,7 +218,7 @@ body {
 .footer-list-item:hover .footer-list-item::after{
   display: flex;
 } */
-.footer-cat{
+.footer-list-box{
   @apply text-secondary text-[20px] leading-[1.2] capitalize 
 }
 

@@ -6,17 +6,28 @@ import logo1 from "../../assets/images/logo1.png";
 import Link from "next/link";
 
 export default function footer() {
+  const [footerMenu, setFooterMenu] = useState([]);
+  const [creditTexts, setCreditTexts] = useState([]);
 
-    const [footerMenu, setFooterMenu] = useState([]);
+  // menus
+  useEffect(() => {
+    fetch("http://birlatyres.viaconprojects.com:1337/api/footer")
+      .then((res) => res.json())
+      .then((footer) => {
+        setFooterMenu(footer.data.attributes.menus.data);
+        setCreditTexts(footer.data.attributes.credit);
+      });
+  }, []);
 
-
-    useEffect(() => {
-        fetch("http://birlatyres.viaconprojects.com:1337/api/footer")
-          .then((res) => res.json())
-          .then((footer) => {
-            setFooterMenu(footer.data.attributes.menus);
-          });
-      }, []);
+  // // credit
+  // useEffect(() => {
+  //   fetch("http://birlatyres.viaconprojects.com:1337/api/footer")
+  //     .then((res) => res.json())
+  //     .then((credits) => {
+  //       setCredit(credits.data.attributes.credit);
+  //       console.log(credits.data.attributes.credit.children);
+  //     });
+  // }, []);
 
   return (
     <div className="footer-main py-[60px] mt-[120px] bg-[#FFFFFF]">
@@ -73,69 +84,195 @@ export default function footer() {
             />
           </figure>
         </div>
-        <div className="footer-list-sec py-10 grid grid-cols-5">
-          <div className="footer-list-box">
-            {/* {footerMenu.map((newMenu) => (
-                <h3 className="footer-cat">{newMenu.menu_item.name}</h3>
-            ))} */}
-            <div className="footer-list">
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-            </div>
-          </div>
-          <div className="footer-list-box">
-            <h3 className="footer-cat">Our Categories</h3>
-            <div className="footer-list">
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-            </div>
-          </div>
-          <div className="footer-list-box">
-            <h3 className="footer-cat">Investors Relations</h3>
-            <div className="footer-list">
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-            </div>
-          </div>
-          <div className="footer-list-box">
-            <h3 className="footer-cat">Sustainability</h3>
-            <div className="footer-list">
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-            </div>
-          </div>
-          <div className="footer-list-box">
-            <h3 className="footer-cat">Tyre Advice</h3>
-            <div className="footer-list">
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-              <Link className="footer-list-item" href="#">Who we are</Link>
-            </div>
-          </div>
-        </div>
+
+        <ul className="footer-list-sec py-10 grid grid-cols-5">
+          {footerMenu.map((newMenu) => (
+            <li className="footer-list-box">
+              <h3>{newMenu.attributes.menu[0].menu_item.name}</h3>
+              <ul className="footer-list">
+                {newMenu.attributes.menu[0].sub_menu_item.map((submenu) => (
+                  <li>
+                    <Link
+                      href={`/${submenu.link}`}
+                      className="footer-list-item"
+                    >
+                      {submenu.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+
+          {/* <li className="footer-list-box">
+            About Us
+            <ul className="footer-list">
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+            </ul>
+          </li>
+          <li className="footer-list-box">
+            About Us
+            <ul className="footer-list">
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+            </ul>
+          </li>
+          <li className="footer-list-box">
+            About Us
+            <ul className="footer-list">
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+            </ul>
+          </li>
+          <li className="footer-list-box">
+            About Us
+            <ul className="footer-list">
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+              <li>
+                <Link className="footer-list-item" href="#">
+                  Who we are
+                </Link>
+              </li>
+            </ul>
+          </li> */}
+        </ul>
+
         <div className="flex flex-col md:flex-row justify-between items-end">
-          <p className="text-[14px] text-[#000000] ">
-            Copyright 2024 Birla Tyres. All rights reserved. Designed by Viacon
+          <p className="text-[14px] text-[#000000]">
+            {creditTexts.map((text, index) => (
+                  <Link href={`/${text.ur}`}>
+                  {text.text}
+                </Link>
+            ))}
           </p>
           <button className="bottom-top-btn">
             <svg
