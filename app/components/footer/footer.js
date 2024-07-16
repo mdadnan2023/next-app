@@ -19,16 +19,6 @@ export default function footer() {
       });
   }, []);
 
-  // // credit
-  // useEffect(() => {
-  //   fetch("http://birlatyres.viaconprojects.com:1337/api/footer")
-  //     .then((res) => res.json())
-  //     .then((credits) => {
-  //       setCredit(credits.data.attributes.credit);
-  //       console.log(credits.data.attributes.credit.children);
-  //     });
-  // }, []);
-
   return (
     <div className="footer-main py-[60px] mt-[120px] bg-[#FFFFFF]">
       <div className="container mx-auto">
@@ -267,13 +257,14 @@ export default function footer() {
         </ul>
 
         <div className="flex flex-col md:flex-row justify-between items-end">
-          <p className="text-[14px] text-[#000000]">
-            {creditTexts.map((text, index) => (
-                  <Link href={`/${text.ur}`}>
-                  {text.text}
-                </Link>
-            ))}
-          </p>
+          {creditTexts.map((newText) => (
+            <p className="text-[14px] text-[#000000]">
+              {newText.children.map((extractText) => (
+                <span>{extractText.text}</span>
+              ))}
+            </p>
+          ))}
+
           <button className="bottom-top-btn">
             <svg
               width="18"
@@ -292,6 +283,7 @@ export default function footer() {
             </svg>
           </button>
         </div>
+        
       </div>
     </div>
   );
