@@ -26,29 +26,7 @@ export default function navbar() {
       });
   }, []);
 
-  // // language dropdown
-  // useEffect(() => {
-  //   fetch("http://birlatyres.viaconprojects.com:1337/api/header")
-  //     .then((res) => res.json())
-  //     .then((lang) => {
-  //       setLang(lang.data.attributes.language.dropdown_item);
-  //       // console.log(navLang);
-  //       // setLoading(false)
-  //     });
-  // }, []);
-
-
-
-// menu dropdown
-  // useEffect(() => {
-  //   fetch("http://birlatyres.viaconprojects.com:1337/api/header")
-  //     .then((res) => res.json())
-  //     .then((navMenus) => {
-  //       setNavMenu(navMenus.data.attributes.menu.data.attributes.menu);
-  //       // console.log(setNavMenu);
-  //       // setLoading(false)
-  //     });
-  // }, []);
+  // if (isLoading) return <p>Loading...</p>
 
   return (
     <div className="nav-main">
@@ -239,6 +217,7 @@ export default function navbar() {
                 />
               </figure>
             </Link>
+            
           </div>
         </div>
         {/* {menu.map((btn) => (
