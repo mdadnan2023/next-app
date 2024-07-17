@@ -1,13 +1,13 @@
 import React from 'react'
 import Slider from "./slider"
-import Aboutsec from "./aboutsec"
+import AboutSec from "./aboutsec"
 
 
 export default function homepage() {
   return (
     <div className=''>
         <Slider />
-        <Aboutsec />
+        <AboutSec />
     </div>
   )
 }

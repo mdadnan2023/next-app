@@ -8,6 +8,7 @@ import Link from "next/link";
 export default function footer() {
   const [footerMenu, setFooterMenu] = useState([]);
   const [creditTexts, setCreditTexts] = useState([]);
+  const [detail, setDetail] = useState([]);
 
   // menus
   useEffect(() => {
@@ -16,20 +17,23 @@ export default function footer() {
       .then((footer) => {
         setFooterMenu(footer.data.attributes.menus.data);
         setCreditTexts(footer.data.attributes.credit);
+        setDetail(footer.data.attributes);
       });
   }, []);
+
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="footer-main py-[60px] mt-[120px] bg-[#FFFFFF]">
       <div className="container mx-auto">
         <div className="footer-detail-sec pb-10 border-b border-[#727C8D]">
           <div className="footer-description-sec w-[65%]">
-            <p className="footer-description-text">
-              Birla Tyres was established in 1991, and popularly known as one of
-              the world-class tyre manufacturers. Birla Tyres has built a solid
-              reputation for quality, strength and best in class tyres in
-              different categories.
-            </p>
+            <p className="footer-description-text">{detail.description}</p>
             <div className="flex gap-4 items-center mt-4">
               <div className="footer-detail-box">
                 <svg
@@ -265,7 +269,7 @@ export default function footer() {
             </p>
           ))}
 
-          <button className="bottom-top-btn">
+          <button onClick={goToTop} className="bottom-top-btn">
             <svg
               width="18"
               height="10"
@@ -283,7 +287,6 @@ export default function footer() {
             </svg>
           </button>
         </div>
-        
       </div>
     </div>
   );

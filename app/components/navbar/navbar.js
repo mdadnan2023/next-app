@@ -19,34 +19,36 @@ export default function navbar() {
       .then((res) => res.json())
       .then((header) => {
         setNavBtn(header.data.attributes.button);
+        setLang(header.data.attributes.language.dropdown_item);
+        setNavMenu(header.data.attributes.menu.data.attributes.menu);
         // console.log(navBtn);
         // setLoading(false)
       });
   }, []);
 
-  // language dropdown
-  useEffect(() => {
-    fetch("http://birlatyres.viaconprojects.com:1337/api/header")
-      .then((res) => res.json())
-      .then((lang) => {
-        setLang(lang.data.attributes.language.dropdown_item);
-        // console.log(navLang);
-        // setLoading(false)
-      });
-  }, []);
+  // // language dropdown
+  // useEffect(() => {
+  //   fetch("http://birlatyres.viaconprojects.com:1337/api/header")
+  //     .then((res) => res.json())
+  //     .then((lang) => {
+  //       setLang(lang.data.attributes.language.dropdown_item);
+  //       // console.log(navLang);
+  //       // setLoading(false)
+  //     });
+  // }, []);
 
 
 
 // menu dropdown
-  useEffect(() => {
-    fetch("http://birlatyres.viaconprojects.com:1337/api/header")
-      .then((res) => res.json())
-      .then((navMenus) => {
-        setNavMenu(navMenus.data.attributes.menu.data.attributes.menu);
-        // console.log(setNavMenu);
-        // setLoading(false)
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://birlatyres.viaconprojects.com:1337/api/header")
+  //     .then((res) => res.json())
+  //     .then((navMenus) => {
+  //       setNavMenu(navMenus.data.attributes.menu.data.attributes.menu);
+  //       // console.log(setNavMenu);
+  //       // setLoading(false)
+  //     });
+  // }, []);
 
   return (
     <div className="nav-main">
