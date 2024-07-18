@@ -157,6 +157,10 @@ body {
   content: url('data:image/svg+xml,<svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.5L9 0.5M9 0.5H2.5M9 0.5V7" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>');
 }
 
+
+/* hamburger menu */
+
+
 /* hero-section */
 .slider-overlay{
   @apply absolute top-0 left-0 w-full h-full bg-[#000000] opacity-40 z-10

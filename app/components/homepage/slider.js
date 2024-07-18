@@ -7,6 +7,7 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import GradualSpacing from "@/components/GradualSpacing";
 import LetterPullup from "@/components/LetterPullup";
+// import video4 from "../../../public/assets/videos/vid4.mp4";
 
 export default function slider() {
   return (
@@ -44,18 +45,12 @@ export default function slider() {
                 </Link>
               </div>
             </div>
-            <video
-              className="absolute top-0 w-full h-fit object-contain"
-              src={
-                "https://videocdn.cdnpk.net/videos/d0db0570-dc13-4dae-8029-9db88e88e580/horizontal/previews/watermarked/large.mp4"
-              }
-              loop
-              autoPlay
-              muted
-            ></video>
+            <video className="absolute top-0 w-full h-fit object-contain" loop autoPlay muted >
+              <source src={"/assets/videos/vid4.mp4"} type="video/mp4" />
+            </video>
           </div>
         </SwiperSlide>
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <div className="swiper-card-main relative">
             <span className="slider-overlay"></span>
             <div className="w-full h-[100vh] flex items-center">
@@ -69,13 +64,9 @@ export default function slider() {
                 </Link>
               </div>
             </div>
-            <video
-              className="absolute top-0 w-full h-fit object-contain"
-              src={"https://assets.mixkit.co/videos/45906/45906-720.mp4"}
-              loop
-              autoPlay
-              muted
-            ></video>
+            <video className="absolute top-0 w-full h-fit object-contain" loop autoPlay muted >
+              <source src={"/assets/videos/vid3.mp4"} type="video/mp4" />
+            </video>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -92,17 +83,11 @@ export default function slider() {
                 </Link>
               </div>
             </div>
-            <video
-              className="absolute top-0 w-full h-fit object-contain"
-              src={
-                "https://videos.pexels.com/video-files/6685779/6685779-hd_1920_1080_30fps.mp4"
-              }
-              loop
-              autoPlay
-              muted
-            ></video>
+            <video className="absolute top-0 w-full h-fit object-contain" loop autoPlay muted >
+              <source src={"/assets/videos/vid2.mp4"} type="video/mp4" />
+            </video>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </div>
   );
