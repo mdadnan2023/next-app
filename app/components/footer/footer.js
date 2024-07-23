@@ -5,7 +5,7 @@ import Image from "next/image";
 import logo1 from "../../assets/images/logo1.png";
 import Link from "next/link";
 
-export default function footer() {
+export default function Footer() {
   const [footerMenu, setFooterMenu] = useState([]);
   const [creditTexts, setCreditTexts] = useState([]);
   const [detail, setDetail] = useState([]);

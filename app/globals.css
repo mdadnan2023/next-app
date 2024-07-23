@@ -177,22 +177,24 @@ body {
 .explore-btn::after{
   content: url('data:image/svg+xml,<svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.5L9 0.5M9 0.5H2.5M9 0.5V7" stroke="%232E3192" stroke-linecap="round" stroke-linejoin="round"/></svg>');
 }
-.section-title{
-  @apply text-[16px] text-[#88909F] mb-4 uppercase tracking-[16%]
-}
 .section-heading{
-  @apply text-[#0E0E11] text-[36px] font-bold leading-[1.2] flex gap-3 items-center relative pl-3
-  before:content-[""] before:w-[3px] before:h-[80%] before:bg-secondary before:absolute before:left-0 before:rounded-[100px]
+  @apply text-primary text-[16px] uppercase mb-3
 }
-.about-detail{
-  @apply text-[#606977] text-[18px] leading-[1.5] mb-3
+.section-title{
+  @apply text-secondary text-[36px] xl:text-[48px] font-bold leading-[1.2] flex gap-3 items-center relative pl-3 capitalize
+  before:content-[""] before:w-[3px] before:h-[80%] before:bg-primary before:absolute before:left-0 before:rounded-[100px]
 }
-.read-btn{
-  @apply text-[16px] text-primary flex items-center gap-2
+.about-heading{
+  @apply text-[#0E0E11] text-[36px] font-semibold leading-[1.1]
 }
-.read-btn::after{
-  content: url('data:image/svg+xml,<svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.5L9 0.5M9 0.5H2.5M9 0.5V7" stroke="%23F5811E" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-}
+
+
+
+
+
+
+
+
 
 
 
