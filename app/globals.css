@@ -187,11 +187,36 @@ body {
 .about-heading{
   @apply text-[#0E0E11] text-[36px] font-semibold leading-[1.1]
 }
+.about-usp-title{
+  @apply text-[#4F5662] text-[20px] font-semibold mt-3
+}
+.about-usp-detail{
+  @apply text-[#727C8D] text-[16px] font-medium mt-2
+}
+.about-centre-fig{
+  @apply absolute z-1 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 w-[132px] h-[136px] bg-[#ffffff] rounded-[20px]
+}
 
+/* innovation section */
 
-
-
-
+.tertiary-button{
+  @apply text-primary text-[16px] font-medium flex gap-1 items-center 
+}
+.tertiary-button::after{
+  content: url('data:image/svg+xml,<svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.5L9 0.5M9 0.5H2.5M9 0.5V7" stroke="%23F5811E" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+.innovation-card figure{
+  @apply w-full h-[280px] mb-5
+}
+.innovation-card-image{
+  @apply w-full h-full object-cover rounded-[24px]
+}
+.innovation-card h2{
+  @apply text-[#0E0E11] text-[32px] mb-2 font-semibold
+}
+.innovation-card p{
+  @apply text-[#0E0E11] text-[20px] mb-2 
+}
 
 
 
