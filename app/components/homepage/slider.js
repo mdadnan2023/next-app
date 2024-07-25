@@ -45,7 +45,7 @@ export default function slider() {
               </div>
             </div>
             <video className="absolute top-0 w-full h-fit object-contain" loop autoPlay muted >
-              <source src={"/assets/videos/vid4.mp4"} type="video/mp4" />
+              <source src={"/assets/videos/TBB.mp4"} type="video/mp4" />
             </video>
           </div>
         </SwiperSlide>
@@ -64,7 +64,7 @@ export default function slider() {
               </div>
             </div>
             <video className="absolute top-0 w-full h-fit object-contain" loop autoPlay muted >
-              <source src={"/assets/videos/vid3.mp4"} type="video/mp4" />
+              <source src={"/assets/videos/OTR.mp4"} type="video/mp4" />
             </video>
           </div>
         </SwiperSlide>
@@ -83,7 +83,7 @@ export default function slider() {
               </div>
             </div>
             <video className="absolute top-0 w-full h-fit object-contain" loop autoPlay muted >
-              <source src={"/assets/videos/vid2.mp4"} type="video/mp4" />
+              <source src={"/assets/videos/AGR.mp4"} type="video/mp4" />
             </video>
           </div>
         </SwiperSlide>

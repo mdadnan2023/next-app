@@ -2,6 +2,9 @@ import React from 'react'
 import Slider from "./slider"
 import AboutSec from "./aboutsec"
 import Innovation from "./innovation"
+import Product from "./product"
+import Sustainability from './sustainability'
+import Media from "./media"
 
 
 export default function homepage() {
@@ -10,6 +13,9 @@ export default function homepage() {
         <Slider />
         <AboutSec />
         <Innovation />
+        <Product />
+        <Sustainability />
+        <Media />
     </>
   )
 }
